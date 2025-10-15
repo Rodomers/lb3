@@ -1,3 +1,5 @@
+import kotlin.math.abs
+
 interface IPayCalculationStrategy {
     val name: String
     fun calculate(works: List<Work>): Double
@@ -69,7 +71,7 @@ object PayrollDepartment {
     }
 
     fun addWorkType(work: Work): Boolean {
-        if (workTypes.none { it.name.equals(work.name, ignoreCase = true) } && work.name.isNotEmpty()) {
+        if (workTypes.none { it.name.equals(work.name, ignoreCase = true) } && work.name.isNotEmpty() && abs(work.pay) <= Int.MAX_VALUE) {
             workTypes.add(work)
             return true
         }

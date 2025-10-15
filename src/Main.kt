@@ -38,7 +38,7 @@ fun addWorkMenu() {
         if (PayrollDepartment.addWorkType(Work(name, basePay))) {
             println("Новый вид работ '$name' успешно добавлен.")
         } else {
-            println("Работа с таким названием уже существует.")
+            println("Работа с таким названием уже существует или введена некорректная сумма оплаты.")
         }
         mainMenu()
         break
