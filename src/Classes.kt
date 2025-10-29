@@ -48,6 +48,21 @@ class Employee(val surname: String) {
     fun countFee(): Double {
         return calculationStrategy.calculate(works)
     }
+
+    operator fun unaryPlus() = countFee()
+    operator fun unaryMinus() = -countFee()
+    operator fun plus(other: Employee): Double {
+        return this.countFee() + other.countFee()
+    }
+    operator fun minus(other: Employee): Double {
+        return this.countFee() - other.countFee()
+    }
+    operator fun times(other: Employee): Double {
+        return this.countFee() * other.countFee()
+    }
+    operator fun div(other: Employee): Double {
+        return this.countFee() / other.countFee()
+    }
 }
 
 object PayrollDepartment {
